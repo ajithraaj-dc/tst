@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script{
                     sh 'python3 -m venv retail_pipeline_venv'
-                    sh './retail_pipeline_venv/bin/pipinstall --upgrade pip'
+                    sh './retail_pipeline_venv/bin/pip install --upgrade pip'
                     sh './retail_pipeline_venv/bin/pip install pipenv'
                 }
             }
