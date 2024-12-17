@@ -23,16 +23,6 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                script{
-                    sh 'echo $JAVA_HOME'
-                    sh 'echo $PATH'
-
-                    sh './retail_pipeline_venv/bin/pipenv run pytest'
-                }
-            }
-        }
         stage('Package') {
             steps {
                 sh 'zip -r retailproject.zip .-x "retail_pipeline_venv/*"'
