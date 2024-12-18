@@ -25,12 +25,12 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh 'zip -r retailproject.zip . -i .-x "retail_pipeline_venv/*"'
+                sh 'zip -r retailproject.zip .-i .-x "retail_pipeline_venv/*"'
             }
         }
         stage("Deploy"){
             steps {
-                sh'sshpass -p $LABS_PSW scp-o StrictHostKeyChecking=no -r retailproject.zip $LABS_USR@g02.itversity.com:/home/itv014119/retailproject'
+                sh'sshpass -p $LABS_PSW scp-o StrictHostKeyChecking=no -r retailproject.zip $LABS_USR@g01.itversity.com:/home/itv014119/retailproject'
             }
         }
     }
